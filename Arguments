@@ -1,0 +1,31 @@
+## Part 1: Greet Template
+name = 'Marc'
+def greet (x, y):
+  print (f'Hello, {x}!')
+  print (f'{y} {x}!')
+greet (name, 'Good day,')
+greet ('bob', 'Have a good day,')
+
+##Part 2: Force
+##force = mass × gravity
+gravity_factors = {'sun':{'mass':333000,'gravity': 274, 'd': 0}, 'jupiter':{'mass':317.8,'gravity':24.9, 'd': 778.3}, 'neptune':{'mass':17.1, 'gravity':11.2, 'd': 4497.1}, 'saturn':{'mass':95.2,'gravity':10.4, 'd':1427}, 'earth':{'mass':1,'gravity':9.8, 'd':149.6}, 'uranus':{'mass':14.5,'gravity':8.9, 'd':2871}, 'venus':{'mass':0.82,'gravity':8.9, 'd':108.2}, 'mars':{'mass':0.1,'gravity':3.7, 'd':227.9}, 'mercury':{'mass':0.06,'gravity':3.7, 'd':57.9}, 'moon':{'mass':0.01,'gravity':1.6, 'd':149.98}, 'pluto':{'mass':0.002,'gravity': 0.6, 'd': 5913}}
+
+def force(x):
+    y= gravity_factors.get(x).get('mass')
+    z= gravity_factors.get(x).get('gravity')
+    f=y*z
+    return f
+
+print(force ('neptune'))
+
+#Part 3: pull = G × ((m1×m2)/d2). (Recall that in Python you can express powers with **, for example: x5 would be x ** 5 in Python.) Write a function pull that takes three arguments: m1 An object's mass in kg (float), m2 Another object's mass in kg (float) and d Their distance in meters (float), pull should return the gravitional pull that these two objects have on each other. You can test your function by entering in the examples given on the website.
+def pull (m1,m2):
+  a=gravity_factors.get(m1).get('mass')*5.9722*(10**24)
+  b=gravity_factors.get(m2).get('mass')*5.9722*(10**24)
+  c=gravity_factors.get(m1).get('d')*(10**9)
+  d=gravity_factors.get(m2).get('d')*(10**9)
+  e=(c-d)
+  f=9.8*((a*b)/e**2)
+  return (f)
+
+print (pull ('jupiter', 'earth'))
